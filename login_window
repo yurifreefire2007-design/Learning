@@ -1,0 +1,40 @@
+import customtkinter as ctk;
+
+# appearance settings
+ctk.set_appearance_mode("dark")
+#creating main window
+app = ctk.CTk()
+app.geometry("400x300")
+app.title("Login System")
+app.iconbitmap("b.ico")
+
+def validate_login():
+    userr = field_user.get()
+    pinn = field_pin.get()
+    if userr == "I'M" and pinn == "123":
+        login_result.configure(text="Login Successful!")
+    else:
+        login_result.configure(text="Something goes Wrong!")
+        
+label_user = ctk.CTkLabel(app,text="User")
+label_user.pack(pady=10)
+
+field_user = ctk.CTkEntry(app,placeholder_text="Enter you user")
+field_user.pack(pady=10)
+
+label_pin = ctk.CTkLabel(app,text="Password")
+label_pin.pack(pady=10)
+
+field_pin = ctk.CTkEntry(app,placeholder_text="Enter you password")
+field_pin.pack(pady=10)
+
+action = ctk.CTkButton(app,text="login",command=validate_login)
+action.pack(pady=10)
+
+login_result = ctk.CTkLabel(app,text='')
+login_result.pack(pady=10)
+
+
+app.mainloop()
+
+
